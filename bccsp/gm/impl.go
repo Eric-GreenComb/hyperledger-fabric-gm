@@ -39,7 +39,7 @@ func New(securityLevel int, hashFamily string, keyStore bccsp.KeyStore) (bccsp.B
 	conf := &config{}
 	err := conf.setSecurityLevel(securityLevel, hashFamily)
 	if err != nil {
-		return nil, errors.Errorf("Failed initializing configuration at [%v,%v]", securityLevel, hashFamily)
+		return nil, errors.Wrapf(err, "Failed initializing configuration at [%v,%v]", securityLevel, hashFamily)
 	}
 
 	// Check KeyStore
@@ -137,7 +137,7 @@ func (csp *impl) KeyGen(opts bccsp.KeyGenOpts) (k bccsp.Key, err error) {
 
 	k, err = keyGenerator.KeyGen(opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed generating key with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed generating key with opts [%v]", opts)
 	}
 
 	// If the key is not Ephemeral, store it.
@@ -169,7 +169,7 @@ func (csp *impl) KeyDeriv(k bccsp.Key, opts bccsp.KeyDerivOpts) (dk bccsp.Key, e
 
 	k, err = keyDeriver.KeyDeriv(k, opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed deriving key with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed deriving key with opts [%v]", opts)
 	}
 
 	// If the key is not Ephemeral, store it.
@@ -201,7 +201,7 @@ func (csp *impl) KeyImport(raw interface{}, opts bccsp.KeyImportOpts) (k bccsp.K
 
 	k, err = keyImporter.KeyImport(raw, opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed importing key with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed importing key with opts [%v]", opts)
 	}
 
 	// If the key is not Ephemeral, store it.
@@ -209,7 +209,7 @@ func (csp *impl) KeyImport(raw interface{}, opts bccsp.KeyImportOpts) (k bccsp.K
 		// Store the key
 		err = csp.ks.StoreKey(k)
 		if err != nil {
-			return nil, errors.Errorf("Failed storing imported key with opts [%v]", opts)
+			return nil, errors.Wrapf(err, "Failed storing imported key with opts [%v]", opts)
 		}
 	}
 
@@ -220,7 +220,7 @@ func (csp *impl) KeyImport(raw interface{}, opts bccsp.KeyImportOpts) (k bccsp.K
 func (csp *impl) GetKey(ski []byte) (k bccsp.Key, err error) {
 	k, err = csp.ks.GetKey(ski)
 	if err != nil {
-		return nil, errors.Errorf("Failed getting key for SKI [%v]", ski)
+		return nil, errors.Wrapf(err, "Failed getting key for SKI [%v]", ski)
 	}
 
 	return
@@ -240,7 +240,7 @@ func (csp *impl) Hash(msg []byte, opts bccsp.HashOpts) (digest []byte, err error
 
 	digest, err = hasher.Hash(msg, opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed hashing with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed hashing with opts [%v]", opts)
 	}
 
 	return
@@ -260,7 +260,7 @@ func (csp *impl) GetHash(opts bccsp.HashOpts) (h hash.Hash, err error) {
 
 	h, err = hasher.GetHash(opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed getting hash function with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed getting hash function with opts [%v]", opts)
 	}
 
 	return
@@ -284,7 +284,7 @@ func (csp *impl) Sign(k bccsp.Key, digest []byte, opts bccsp.SignerOpts) (signat
 
 	signature, err = signer.Sign(k, digest, opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed signing with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed signing with opts [%v]", opts)
 	}
 
 	return
@@ -310,7 +310,7 @@ func (csp *impl) Verify(k bccsp.Key, signature, digest []byte, opts bccsp.Signer
 
 	valid, err = verifier.Verify(k, signature, digest, opts)
 	if err != nil {
-		return false, errors.Errorf("Failed verifing with opts [%v]", opts)
+		return false, errors.Wrapf(err, "Failed verifing with opts [%v]", opts)
 	}
 
 	return
@@ -345,7 +345,7 @@ func (csp *impl) Decrypt(k bccsp.Key, ciphertext []byte, opts bccsp.DecrypterOpt
 
 	plaintext, err = decryptor.Decrypt(k, ciphertext, opts)
 	if err != nil {
-		return nil, errors.Errorf("Failed decrypting with opts [%v]", opts)
+		return nil, errors.Wrapf(err, "Failed decrypting with opts [%v]", opts)
 	}
 
 	return
