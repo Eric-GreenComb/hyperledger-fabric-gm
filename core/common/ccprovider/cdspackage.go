@@ -23,8 +23,8 @@ import (
 	"os"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/factory"
 	pb "github.com/hyperledger/fabric/protos/peer"
 )
 

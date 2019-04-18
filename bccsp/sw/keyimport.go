@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/utils"
 )
 
 type aes256ImportKeyOptsKeyImporter struct{}

@@ -5,8 +5,8 @@ import (
 	"crypto/ecdsa"
 	"sync"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/idemix/handlers"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/idemix/handlers"
 )
 
 type Revocation struct {

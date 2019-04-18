@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hyperledger/fabric/bccsp/factory"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/factory"
 	"github.com/hyperledger/fabric/common/channelconfig"
 	"github.com/hyperledger/fabric/common/flogging"
 	"github.com/hyperledger/fabric/common/viperutil"

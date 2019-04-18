@@ -4,7 +4,7 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/bccsp/idemix/handlers"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/idemix/handlers"
 )
 
 type Big struct {

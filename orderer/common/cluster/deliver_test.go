@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/bccsp/factory"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/factory"
 	"github.com/hyperledger/fabric/common/flogging"
 	false_crypto "github.com/hyperledger/fabric/common/mocks/crypto"
 	"github.com/hyperledger/fabric/core/comm"

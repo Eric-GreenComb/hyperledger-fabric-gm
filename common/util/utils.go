@@ -26,8 +26,8 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/factory"
 	"github.com/hyperledger/fabric/common/metadata"
 )
 

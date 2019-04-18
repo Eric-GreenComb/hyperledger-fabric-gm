@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/utils"
 	"github.com/hyperledger/fabric/common/tools/cryptogen/csp"
 )
 

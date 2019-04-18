@@ -15,7 +15,7 @@ import (
 	"io/ioutil"
 	"math/big"
 
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp/utils"
 	"github.com/hyperledger/fabric/common/util"
 	"github.com/hyperledger/fabric/protos/msp"
 	proto_utils "github.com/hyperledger/fabric/protos/utils"

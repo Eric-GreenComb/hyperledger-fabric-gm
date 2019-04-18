@@ -111,7 +111,7 @@ pkgmap.discover       := $(PKGNAME)/cmd/discover
 
 include docker-env.mk
 
-all: native docker checks
+all: native
 
 checks: basic-checks unit-test integration-test
 
